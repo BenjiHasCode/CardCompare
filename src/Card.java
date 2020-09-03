@@ -9,6 +9,9 @@ public class Card implements Comparable<Card>, Iterable{
         this.color = color;
         this.name = name;
         switch (name){
+            case "Ace":
+                this.value = 14;
+                break;
             case "Two":
                 this.value = 2;
                 break;
@@ -45,8 +48,51 @@ public class Card implements Comparable<Card>, Iterable{
             case "King":
                 this.value = 13;
                 break;
-            case "Ace":
-                this.value = 14;
+        }
+    }
+
+    public Card(int value, String color){
+        this.color = color;
+        this.value = value;
+        switch (value){
+            case 1:
+                this.name = "Ace";
+                break;
+            case 2:
+                this.name = "Two";
+                break;
+            case 3:
+                this.name = "Three";
+                break;
+            case 4:
+                this.name = "Four";
+                break;
+            case 5:
+                this.name = "Five";
+                break;
+            case 6:
+                this.name = "Six";
+                break;
+            case 7:
+                this.name = "Seven";
+                break;
+            case 8:
+                this.name = "Eight";
+                break;
+            case 9:
+                this.name = "Nine";
+                break;
+            case 10:
+                this.name = "Ten";
+                break;
+            case 11:
+                this.name = "Jack";
+                break;
+            case 12:
+                this.name = "Queen";
+                break;
+            case 13:
+                this.name = "King";
                 break;
         }
     }
@@ -64,5 +110,9 @@ public class Card implements Comparable<Card>, Iterable{
     @Override
     public Iterator iterator() {
         return null;
+    }
+
+    public String toString(){
+        return name + " of " + color;
     }
 }
