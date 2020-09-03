@@ -99,15 +99,15 @@ public class Card implements Comparable<Card>, Iterable{
 
     @Override
     public int compareTo(Card c) {
-        if (c.value < value)
+        if (value > c.value)
             return 1;
-        else if (c.value == value)
+        else if (value == c.value)
             return 0;
         else
             return -1;
     }
 
-    @Override
+    @Override //TODO
     public Iterator iterator() {
         return null;
     }
