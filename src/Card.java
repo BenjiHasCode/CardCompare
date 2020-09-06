@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-public class Card implements Comparable<Card>, Iterable{
+public class Card implements Comparable<Card>{
     int value;
     String name;
     String color;
@@ -99,20 +99,24 @@ public class Card implements Comparable<Card>, Iterable{
 
     @Override
     public int compareTo(Card c) {
-        if (value > c.value)
-            return 1;
-        else if (value == c.value)
-            return 0;
-        else
-            return -1;
-    }
-
-    @Override //TODO
-    public Iterator iterator() {
-        return null;
+        return Integer.compare(value, c.value);
     }
 
     public String toString(){
         return name + " of " + color;
+    }
+
+    public static int colorValue(Card c){
+        switch (c.color){
+            case "Spade":
+                return c.value + 3;
+            case "Hearts":
+                return c.value + 2;
+            case "Diamond":
+                return c.value + 1;
+            case "Clubs":
+                return c.value;
+        }
+        return -1;
     }
 }
