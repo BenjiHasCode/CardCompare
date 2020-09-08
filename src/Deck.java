@@ -1,25 +1,14 @@
 import java.util.*;
-import java.util.function.Consumer;
 
 public class Deck implements Iterable<Card>{
     private List<Card> deck = new ArrayList<>();
 
     public Deck(){
-        //add hearts
-        for(int i = 0; i < 13; i++){
-            deck.add(new Card(i+1,"Hearts"));
-        }
-        //add diamonds
-        for(int i = 0; i < 13; i++){
-            deck.add(new Card(i+1,"Diamonds"));
-        }
-        //add spades
-        for(int i = 0; i < 13; i++){
-            deck.add(new Card(i+1,"Spades"));
-        }
-        //add clubs
-        for(int i = 0; i < 13; i++){
-            deck.add(new Card(i+1,"Clubs"));
+        //for each color enum
+        for(Color c : Color.values()){
+            for(Value v : Value.values()){
+                deck.add(new Card(v, c));
+            }
         }
         Collections.shuffle(this.deck); //we shuffle the deck when instantiated
     }
@@ -39,7 +28,7 @@ public class Deck implements Iterable<Card>{
         return deck.iterator();
     }
 
-    @Override
+    /*@Override
     public void forEach(Consumer<? super Card> action) {
 
     }
@@ -47,5 +36,5 @@ public class Deck implements Iterable<Card>{
     @Override
     public Spliterator<Card> spliterator() {
         return null;
-    }
+    }*/
 }
