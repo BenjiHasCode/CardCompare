@@ -1,11 +1,17 @@
 public class Game {
-    public static void play(){
+    Deck deck;
+    int player1;
+    int player2;
+
+    public Game(){
+        deck = new Deck();
+        player1 = 0;
+        player2 = 0;
+    }
+
+    public void play(){
         //initialize decks
         Deck deck = new Deck();
-
-        //initialize points
-        int player1 = 0;
-        int player2 = 0;
 
         //"play" game
         for (int i = 0; i < 26; i++){
@@ -18,10 +24,12 @@ public class Game {
             //compare
             switch (card1.compareTo(card2)) {
                 case 1: //p1 card is better
+                    //award difference in card values to points
                     player1 += card1.value.ordinal() - card2.value.ordinal();
                     System.out.println("Player 1's card was greater!");
                     break;
-                case 0:
+                case 0://cards are equal
+                    //find better color award +1 point
                     if (card1.color.ordinal() > card2.color.ordinal()){
                         player1++;
                         System.out.println("Player 1's card was greater!");
